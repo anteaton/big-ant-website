@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1:1 Online Coaching | Big Ant</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <span class="tag">1:1 Online Coaching</span>
+        <h1>Big Ant Coaching</h1>
+        <p class="hero-text">Get the exact high-volume hypertrophy and strength principles I use to build a dense, elite physique, tailored directly to your goals.</p>
+    </header>
+
+    <div class="search-section">
+        <input 
+            type="text" 
+            id="searchInput" 
+            class="search-input" 
+            placeholder="Search for a city..."
+            autocomplete="off"
+        >
+        <button id="searchBtn" class="search-btn">Search</button>
+        <button id="locationBtn" class="location-btn" title="Use my location">📍</button>
+    </div>
+
+    <form id="coachingForm" action="https://formspree.io/f/xnpqdaej" method="POST">
+        
+        <div class="form-group">
+            <label class="question" for="name">1. Full Name</label>
+            <input type="text" id="name" name="full_name" placeholder="John Doe" required>
+            <div class="error" id="nameError">Please enter your full name</div>
+        </div>
+
+        <div class="form-group">
+            <label class="question" for="email">2. Email Address</label>
+            <input type="email" id="email" name="email" placeholder="john@example.com" required>
+            <div class="error" id="emailError">Please enter a valid email address</div>
+        </div>
+
+        <div class="form-group">
+            <label class="question" for="phone">3. Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000" required>
+            <div class="error" id="phoneError">Please enter your phone number</div>
+        </div>
+
+        <div class="form-group">
+            <label class="question">4. What is your primary fitness goal right now?</label>
+            <div class="option-group">
+                <label class="option-label">
+                    <input type="checkbox" name="goal" value="Building raw size / mass">
+                    Building raw size / mass (Hypertrophy)
+                </label>
+                <label class="option-label">
+                    <input type="checkbox" name="goal" value="Getting lean / dropping body fat">
+                    Getting lean / dropping body fat
+                </label>
+                <label class="option-label">
+                    <input type="checkbox" name="goal" value="Increasing strength on heavy compound lifts">
+                    Increasing strength on heavy compound lifts (Bench, Squat, etc.)
+                </label>
+                <label class="option-label">
+                    <input type="checkbox" name="goal" value="General physique aesthetic / V-taper development">
+                    General physique aesthetic / V-taper development
+                </label>
+            </div>
+            <div class="error" id="goalError">Please select at least one goal</div>
+        </div>
+
+        <div class="form-group">
+            <label class="question">5. How many years/months have you been seriously training?</label>
+            <div class="option-group">
+                <label class="option-label">
+                    <input type="radio" name="experience" value="0–1 year" required>
+                    0–1 year (Beginner)
+                </label>
+                <label class="option-label">
+                    <input type="radio" name="experience" value="1–3 years">
+                    1–3 years (Intermediate)
+                </label>
+                <label class="option-label">
+                    <input type="radio" name="experience" value="3+ years">
+                    3+ years (Advanced)
+                </label>
+            </div>
+            <div class="error" id="experienceError">Please select your training experience</div>
+        </div>
+
+        <div class="form-group">
+            <label class="question" for="split">6. What does your current training split look like?</label>
+            <input type="text" id="split" name="training_split" placeholder="e.g., Push/Pull/Legs, Upper/Lower" required>
+            <div class="error" id="splitError">Please enter your training split</div>
+        </div>
+
+        <div class="form-group">
+            <label class="question" for="roadblock">7. What is your biggest roadblock right now?</label>
+            <textarea id="roadblock" name="roadblock" rows="4" placeholder="Nutrition, consistency, plateauing, programming, etc." required></textarea>
+            <div class="error" id="roadblockError">Please describe your biggest roadblock</div>
+        </div>
+
+        <div class="form-group">
+            <label class="question">8. Are you ready to invest in yourself and commit to a monthly coaching program to secure your goals?</label>
+            <div class="option-group">
+                <label class="option-label">
+                    <input type="radio" name="ready_to_invest" value="Yes" required>
+                    Yes
+                </label>
+                <label class="option-label">
+                    <input type="radio" name="ready_to_invest" value="No">
+                    No
+                </label>
+            </div>
+            <div class="error" id="investError">Please select an option</div>
+        </div>
+
+        <button type="submit" class="btn-submit">Submit Application</button>
+    </form>
+</div>
+
+<script src="form-handler.js"></script>
+
+</body>
+</html>
