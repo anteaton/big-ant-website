@@ -3,124 +3,329 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1:1 Online Coaching | Big Ant</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Big Ant Coaching | 1-on-1 Online Fitness Coaching</title>
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --card-bg: #fbfbfa;
+            --text-color: #2b2b2b;
+            --text-muted: #555555;
+            --border-color: #ebe6df;
+            --accent-color: #1a1a1a;
+            --highlight-bg: #f7f6f3;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 30px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 8px;
+            margin-top: 40px;
+        }
+
+        h3 {
+            color: var(--accent-color);
+            margin-top: 0;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        @media(min-width: 600px) {
+            .pricing-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        blockquote {
+            background-color: var(--highlight-bg);
+            border-left: 3px solid #d4d0c7;
+            margin: 15px 0;
+            padding: 12px 18px;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        /* Form Styling */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-weight: 600;
+            margin-bottom: 5px;
+            font-size: 0.95rem;
+        }
+
+        input, select, textarea {
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 1rem;
+            background-color: #ffffff;
+            color: var(--text-color);
+            font-family: inherit;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #888888;
+        }
+
+        /* Waiver Checkbox Styling */
+        .checkbox-group {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            gap: 10px;
+            margin-top: 5px;
+        }
+
+        .checkbox-group input {
+            margin-top: 4px;
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .checkbox-group label {
+            font-weight: normal;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            cursor: pointer;
+        }
+
+        .waiver-box {
+            background-color: var(--highlight-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            max-height: 120px;
+            overflow-y: auto;
+            margin-bottom: 5px;
+        }
+
+        button[type="submit"] {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            padding: 14px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s ease;
+            margin-top: 10px;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #333333;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+    </style>
 </head>
 <body>
 
-<div class="container">
     <header>
-        <span class="tag">1:1 Online Coaching</span>
         <h1>Big Ant Coaching</h1>
-        <p class="hero-text">Get the exact high-volume hypertrophy and strength principles I use to build a dense, elite physique, tailored directly to your goals.</p>
+        <p>Custom 1-on-1 Online Fitness Coaching & Progressive Overload Systems</p>
     </header>
 
-    <div class="search-section">
-        <input 
-            type="text" 
-            id="searchInput" 
-            class="search-input" 
-            placeholder="Search for a city..."
-            autocomplete="off"
-        >
-        <button id="searchBtn" class="search-btn">Search</button>
-        <button id="locationBtn" class="location-btn" title="Use my location">📍</button>
-    </div>
-
-    <form id="coachingForm" action="https://formspree.io/f/xnpqdaej" method="POST">
-        
-        <div class="form-group">
-            <label class="question" for="name">1. Full Name</label>
-            <input type="text" id="name" name="full_name" placeholder="John Doe" required>
-            <div class="error" id="nameError">Please enter your full name</div>
+    <main>
+        <h2>1. Executive Summary & Niche</h2>
+        <div class="card">
+            <ul>
+                <li><strong>Target Audience:</strong> Gym-goers and lifters looking to optimize their training, break plateaus, and build muscle efficiently.</li>
+                <li><strong>Core Value Proposition:</strong> Customized 1-on-1 online coaching focused on progressive overload, realistic nutrition, and high accountability without restrictive dieting.</li>
+                <li><strong>Current Asset Base:</strong> TikTok audience of 2,000 engaged followers, real-world lifting experience, and a direct-action sales funnel.</li>
+            </ul>
         </div>
 
-        <div class="form-group">
-            <label class="question" for="email">2. Email Address</label>
-            <input type="email" id="email" name="email" placeholder="john@example.com" required>
-            <div class="error" id="emailError">Please enter a valid email address</div>
-        </div>
-
-        <div class="form-group">
-            <label class="question" for="phone">3. Phone Number</label>
-            <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000" required>
-            <div class="error" id="phoneError">Please enter your phone number</div>
-        </div>
-
-        <div class="form-group">
-            <label class="question">4. What is your primary fitness goal right now?</label>
-            <div class="option-group">
-                <label class="option-label">
-                    <input type="checkbox" name="goal" value="Building raw size / mass">
-                    Building raw size / mass (Hypertrophy)
-                </label>
-                <label class="option-label">
-                    <input type="checkbox" name="goal" value="Getting lean / dropping body fat">
-                    Getting lean / dropping body fat
-                </label>
-                <label class="option-label">
-                    <input type="checkbox" name="goal" value="Increasing strength on heavy compound lifts">
-                    Increasing strength on heavy compound lifts (Bench, Squat, etc.)
-                </label>
-                <label class="option-label">
-                    <input type="checkbox" name="goal" value="General physique aesthetic / V-taper development">
-                    General physique aesthetic / V-taper development
-                </label>
+        <h2>2. Service Tiers & Pricing Model</h2>
+        <div class="pricing-grid">
+            <div class="card">
+                <h3>Standard 1:1 Coaching</h3>
+                <p><strong>$200 – $300 / month</strong></p>
+                <ul>
+                    <li>Custom training split tailored to schedule.</li>
+                    <li>Macro/calorie updates bi-weekly.</li>
+                    <li>Weekly asynchronous check-ins & video reviews.</li>
+                    <li>In-app messaging (24-48h response).</li>
+                    <li><strong>Term:</strong> 3-month minimum commitment.</li>
+                </ul>
             </div>
-            <div class="error" id="goalError">Please select at least one goal</div>
-        </div>
 
-        <div class="form-group">
-            <label class="question">5. How many years/months have you been seriously training?</label>
-            <div class="option-group">
-                <label class="option-label">
-                    <input type="radio" name="experience" value="0–1 year" required>
-                    0–1 year (Beginner)
-                </label>
-                <label class="option-label">
-                    <input type="radio" name="experience" value="1–3 years">
-                    1–3 years (Intermediate)
-                </label>
-                <label class="option-label">
-                    <input type="radio" name="experience" value="3+ years">
-                    3+ years (Advanced)
-                </label>
+            <div class="card">
+                <h3>High-Touch Coaching</h3>
+                <p><strong>$400 – $500+ / month</strong></p>
+                <ul>
+                    <li>Everything in Standard, plus:</li>
+                    <li>Direct WhatsApp/Telegram access (24h response).</li>
+                    <li>Detailed video form breakdowns for compounds.</li>
+                    <li>Bi-weekly 15-minute live video check-ins.</li>
+                </ul>
             </div>
-            <div class="error" id="experienceError">Please select your training experience</div>
         </div>
 
-        <div class="form-group">
-            <label class="question" for="split">6. What does your current training split look like?</label>
-            <input type="text" id="split" name="training_split" placeholder="e.g., Push/Pull/Legs, Upper/Lower" required>
-            <div class="error" id="splitError">Please enter your training split</div>
+        <h2>3. Content & Social Media Funnel</h2>
+        <div class="card">
+            <ul>
+                <li><strong>Content Pivot:</strong> Shift away from generic workout clips toward high-value problem-solving content (plateau fixes, biomechanics, realistic nutrition).</li>
+                <li><strong>Call-to-Action (CTA):</strong> Direct traffic seamlessly from social media bios and captions.</li>
+            </ul>
+            <blockquote>"DM 'COACH' to apply for 1:1 training slots."</blockquote>
+            <ul>
+                <li><strong>Lead Generation:</strong> Actively engage with followers who consistently interact with transformation and educational posts.</li>
+            </ul>
         </div>
 
-        <div class="form-group">
-            <label class="question" for="roadblock">7. What is your biggest roadblock right now?</label>
-            <textarea id="roadblock" name="roadblock" rows="4" placeholder="Nutrition, consistency, plateauing, programming, etc." required></textarea>
-            <div class="error" id="roadblockError">Please describe your biggest roadblock</div>
+        <h2>4. Launch Strategy & Beta Cohort</h2>
+        <div class="card">
+            <ul>
+                <li><strong>Beta Pricing:</strong> Lock in the first 3 to 5 clients at a discounted rate (<strong>$150 – $200 / month</strong>) to eliminate friction and build initial case studies.</li>
+                <li><strong>Launch Requirements:</strong> 3-month minimum commitment, weekly progress tracking, and a final video/written testimonial.</li>
+                <li><strong>Scaling Plan:</strong> Double coaching rates for subsequent cohorts once proof and case studies are secured.</li>
+            </ul>
         </div>
 
-        <div class="form-group">
-            <label class="question">8. Are you ready to invest in yourself and commit to a monthly coaching program to secure your goals?</label>
-            <div class="option-group">
-                <label class="option-label">
-                    <input type="radio" name="ready_to_invest" value="Yes" required>
-                    Yes
-                </label>
-                <label class="option-label">
-                    <input type="radio" name="ready_to_invest" value="No">
-                    No
-                </label>
-            </div>
-            <div class="error" id="investError">Please select an option</div>
+        <h2>5. Operational Setup & Tech Stack</h2>
+        <div class="card">
+            <ul>
+                <li><strong>Programming & Tracking:</strong> Delivered via Trainerize, Google Sheets, or TrueCoach.</li>
+                <li><strong>Check-In System:</strong> Weekly Google Forms or Typeform tracking metrics and biofeedback.</li>
+                <li><strong>Payments:</strong> Automated monthly recurring billing via Stripe or PayPal.</li>
+            </ul>
         </div>
 
-        <button type="submit" class="btn-submit">Submit Application</button>
-    </form>
-</div>
+        <h2>Apply for 1-on-1 Coaching</h2>
+        <div class="card">
+            <p>Ready to transform your physique and break through your plateaus? Fill out the application form below to secure your spot.</p>
+            
+            <form action="https://formspree.io/f/xnpqdaej" method="POST">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required placeholder="John Doe">
+                </div>
 
-<script src="form-handler.js"></script>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required placeholder="john@example.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="(555) 000-0000">
+                </div>
+
+                <div class="form-group">
+                    <label for="tier">Select Coaching Tier</label>
+                    <select id="tier" name="tier" required>
+                        <option value="" disabled selected>Choose an option...</option>
+                        <option value="Standard ($200-$300/mo)">Standard 1:1 Coaching ($200 – $300/mo)</option>
+                        <option value="High-Touch ($400-$500/mo)">High-Touch / Premium Coaching ($400 – $500+/mo)</option>
+                        <option value="Beta Cohort ($150-$200/mo)">Beta Cohort Spot ($150 – $200/mo)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="goals">What is your primary fitness goal and biggest current plateau?</label>
+                    <textarea id="goals" name="goals" rows="4" required placeholder="e.g., Want to build leg size, stuck on bench press, struggling with nutrition consistency..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="experience">Training Experience</label>
+                    <select id="experience" name="experience" required>
+                        <option value="" disabled selected>Choose an option...</option>
+                        <option value="0-1 year">0–1 year (Beginner)</option>
+                        <option value="1-3 years">1–3 years (Intermediate)</option>
+                        <option value="3+ years">3+ years (Advanced)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Coaching Terms & Liability Waiver</label>
+                    <div class="waiver-box">
+                        <strong>Medical & Service Disclaimer:</strong> Big Ant Coaching provides fitness programming and general nutritional guidance. I understand that I should consult a physician before beginning any exercise program. I assume full responsibility for any injuries incurred during training. Due to the custom nature of digital programming, all 3-month commitments are non-refundable once initial plans are delivered.
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="waiver" name="waiver_accepted" required>
+                        <label for="waiver">I have read, understood, and agree to the Terms of Service, Medical Waiver, and the 3-month minimum commitment policy.</label>
+                    </div>
+                </div>
+
+                <button type="submit">Submit Coaching Application</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Big Ant Coaching. All rights reserved.</p>
+    </footer>
 
 </body>
 </html>
