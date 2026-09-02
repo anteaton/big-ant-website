@@ -36,6 +36,7 @@
             font-size: 2.5rem;
             color: var(--accent-color);
             margin-bottom: 10px;
+            letter-spacing: -0.5px;
         }
 
         header p {
@@ -72,8 +73,30 @@
 
         @media(min-width: 600px) {
             .pricing-grid {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: repeat(3, 1fr);
             }
+        }
+
+        .pricing-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .pricing-card.featured {
+            border-color: var(--accent-color);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+
+        .price {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            margin: 10px 0 15px 0;
         }
 
         ul {
@@ -81,16 +104,8 @@
         }
 
         li {
-            margin-bottom: 10px;
-        }
-
-        blockquote {
-            background-color: var(--highlight-bg);
-            border-left: 3px solid #d4d0c7;
-            margin: 15px 0;
-            padding: 12px 18px;
-            color: var(--text-muted);
-            font-style: italic;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
         }
 
         /* Form Styling */
@@ -118,7 +133,6 @@
             font-size: 1rem;
             background-color: #ffffff;
             color: var(--text-color);
-            font-family: inherit;
         }
 
         input:focus, select:focus, textarea:focus {
@@ -126,7 +140,6 @@
             border-color: #888888;
         }
 
-        /* Waiver Checkbox Styling */
         .checkbox-group {
             display: flex;
             flex-direction: row;
@@ -140,7 +153,6 @@
             width: 18px;
             height: 18px;
             cursor: pointer;
-            flex-shrink: 0;
         }
 
         .checkbox-group label {
@@ -163,7 +175,7 @@
         }
 
         button[type="submit"] {
-            background-color: #1a1a1a;
+            background-color: var(--accent-color);
             color: #ffffff;
             padding: 14px;
             border: none;
@@ -193,78 +205,61 @@
 
     <header>
         <h1>Big Ant Coaching</h1>
-        <p>Custom 1-on-1 Online Fitness Coaching & Progressive Overload Systems</p>
+        <p>Custom 1-on-1 Online Training & Progressive Overload Systems</p>
     </header>
 
     <main>
-        <h2>1. Executive Summary & Niche</h2>
+        <h2>The Approach</h2>
         <div class="card">
-            <ul>
-                <li><strong>Target Audience:</strong> Gym-goers and lifters looking to optimize their training, break plateaus, and build muscle efficiently.</li>
-                <li><strong>Core Value Proposition:</strong> Customized 1-on-1 online coaching focused on progressive overload, realistic nutrition, and high accountability without restrictive dieting.</li>
-                <li><strong>Current Asset Base:</strong> TikTok audience of 2,000 engaged followers, real-world lifting experience, and a direct-action sales funnel.</li>
-            </ul>
+            <p>Built specifically for gym-goers and lifters looking to optimize their training, break plateaus, and build muscle efficiently. No restrictive dieting or cookie-cutter routines—just structured progressive overload, realistic nutrition strategies, and high personal accountability.</p>
         </div>
 
-        <h2>2. Service Tiers & Pricing Model</h2>
+        <h2>Coaching Programs & Investment</h2>
         <div class="pricing-grid">
-            <div class="card">
-                <h3>Standard 1:1 Coaching</h3>
-                <p><strong>$200 – $300 / month</strong></p>
-                <ul>
-                    <li>Custom training split tailored to schedule.</li>
-                    <li>Macro/calorie updates bi-weekly.</li>
-                    <li>Weekly asynchronous check-ins & video reviews.</li>
-                    <li>In-app messaging (24-48h response).</li>
-                    <li><strong>Term:</strong> 3-month minimum commitment.</li>
-                </ul>
+            <div class="pricing-card">
+                <div>
+                    <h3>Beta Cohort</h3>
+                    <div class="price">$150 – $200 / mo</div>
+                    <ul>
+                        <li>Limited to first 3–5 slots.</li>
+                        <li>Full custom training & macro setup.</li>
+                        <li>Weekly progress photo & metric tracking.</li>
+                        <li>Requires 3-month commitment & video testimonial.</li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="card">
-                <h3>High-Touch Coaching</h3>
-                <p><strong>$400 – $500+ / month</strong></p>
-                <ul>
-                    <li>Everything in Standard, plus:</li>
-                    <li>Direct WhatsApp/Telegram access (24h response).</li>
-                    <li>Detailed video form breakdowns for compounds.</li>
-                    <li>Bi-weekly 15-minute live video check-ins.</li>
-                </ul>
+            <div class="pricing-card featured">
+                <div>
+                    <h3>Standard 1:1</h3>
+                    <div class="price">$200 – $300 / mo</div>
+                    <ul>
+                        <li>Custom training split for your schedule/equipment.</li>
+                        <li>Bi-weekly macro & calorie adjustments.</li>
+                        <li>Weekly asynchronous check-in & video form reviews.</li>
+                        <li>In-app messaging support (24–48h response).</li>
+                        <li>3-month minimum term.</li>
+                    </ul>
+                </div>
             </div>
-        </div>
 
-        <h2>3. Content & Social Media Funnel</h2>
-        <div class="card">
-            <ul>
-                <li><strong>Content Pivot:</strong> Shift away from generic workout clips toward high-value problem-solving content (plateau fixes, biomechanics, realistic nutrition).</li>
-                <li><strong>Call-to-Action (CTA):</strong> Direct traffic seamlessly from social media bios and captions.</li>
-            </ul>
-            <blockquote>"DM 'COACH' to apply for 1:1 training slots."</blockquote>
-            <ul>
-                <li><strong>Lead Generation:</strong> Actively engage with followers who consistently interact with transformation and educational posts.</li>
-            </ul>
-        </div>
-
-        <h2>4. Launch Strategy & Beta Cohort</h2>
-        <div class="card">
-            <ul>
-                <li><strong>Beta Pricing:</strong> Lock in the first 3 to 5 clients at a discounted rate (<strong>$150 – $200 / month</strong>) to eliminate friction and build initial case studies.</li>
-                <li><strong>Launch Requirements:</strong> 3-month minimum commitment, weekly progress tracking, and a final video/written testimonial.</li>
-                <li><strong>Scaling Plan:</strong> Double coaching rates for subsequent cohorts once proof and case studies are secured.</li>
-            </ul>
-        </div>
-
-        <h2>5. Operational Setup & Tech Stack</h2>
-        <div class="card">
-            <ul>
-                <li><strong>Programming & Tracking:</strong> Delivered via Trainerize, Google Sheets, or TrueCoach.</li>
-                <li><strong>Check-In System:</strong> Weekly Google Forms or Typeform tracking metrics and biofeedback.</li>
-                <li><strong>Payments:</strong> Automated monthly recurring billing via Stripe or PayPal.</li>
-            </ul>
+            <div class="pricing-card">
+                <div>
+                    <h3>High-Touch</h3>
+                    <div class="price">$400 – $500+ / mo</div>
+                    <ul>
+                        <li>Everything in Standard included.</li>
+                        <li>Direct WhatsApp/Telegram access (24h response).</li>
+                        <li>Detailed video form breakdowns for all compounds.</li>
+                        <li>Bi-weekly 15-minute live video check-ins.</li>
+                    </ul>
+                </div>
+            </div>
         </div>
 
         <h2>Apply for 1-on-1 Coaching</h2>
         <div class="card">
-            <p>Ready to transform your physique and break through your plateaus? Fill out the application form below to secure your spot.</p>
+            <p>Ready to break through your plateaus and transform your physique? Submit your application below to secure your spot.</p>
             
             <form action="https://formspree.io/f/xnpqdaej" method="POST">
                 <div class="form-group">
@@ -278,39 +273,24 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="phone">Phone Number</label>
-                    <input type="tel" id="phone" name="phone" required placeholder="(555) 000-0000">
-                </div>
-
-                <div class="form-group">
-                    <label for="tier">Select Coaching Tier</label>
+                    <label for="tier">Select Preferred Program</label>
                     <select id="tier" name="tier" required>
                         <option value="" disabled selected>Choose an option...</option>
+                        <option value="Beta Cohort ($150-$200/mo)">Beta Cohort Spot ($150 – $200/mo)</option>
                         <option value="Standard ($200-$300/mo)">Standard 1:1 Coaching ($200 – $300/mo)</option>
                         <option value="High-Touch ($400-$500/mo)">High-Touch / Premium Coaching ($400 – $500+/mo)</option>
-                        <option value="Beta Cohort ($150-$200/mo)">Beta Cohort Spot ($150 – $200/mo)</option>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label for="goals">What is your primary fitness goal and biggest current plateau?</label>
-                    <textarea id="goals" name="goals" rows="4" required placeholder="e.g., Want to build leg size, stuck on bench press, struggling with nutrition consistency..."></textarea>
-                </div>
-
-                <div class="form-group">
-                    <label for="experience">Training Experience</label>
-                    <select id="experience" name="experience" required>
-                        <option value="" disabled selected>Choose an option...</option>
-                        <option value="0-1 year">0–1 year (Beginner)</option>
-                        <option value="1-3 years">1–3 years (Intermediate)</option>
-                        <option value="3+ years">3+ years (Advanced)</option>
-                    </select>
+                    <label for="goals">Primary Fitness Goal & Current Plateau</label>
+                    <textarea id="goals" name="goals" rows="4" required placeholder="e.g., Stalled on bench press, want to maximize leg hypertrophy, struggling with nutrition consistency..."></textarea>
                 </div>
 
                 <div class="form-group">
                     <label>Coaching Terms & Liability Waiver</label>
                     <div class="waiver-box">
-                        <strong>Medical & Service Disclaimer:</strong> Big Ant Coaching provides fitness programming and general nutritional guidance. I understand that I should consult a physician before beginning any exercise program. I assume full responsibility for any injuries incurred during training. Due to the custom nature of digital programming, all 3-month commitments are non-refundable once initial plans are delivered.
+                        <strong>Medical & Service Disclaimer:</strong> Big Ant Coaching provides fitness programming and general nutritional guidance. I understand that I should consult a physician before beginning any physical exercise program. I assume full responsibility for any injuries incurred during training. Due to the custom digital nature of our programming, all 3-month coaching commitments are non-refundable once initial plans are delivered.
                     </div>
                     <div class="checkbox-group">
                         <input type="checkbox" id="waiver" name="waiver_accepted" required>
@@ -318,7 +298,7 @@
                     </div>
                 </div>
 
-                <button type="submit">Submit Coaching Application</button>
+                <button type="submit">Submit Application</button>
             </form>
         </div>
     </main>
