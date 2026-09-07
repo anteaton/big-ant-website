@@ -1,145 +1,58 @@
-# 💪 Big Ant Coaching - 1:1 Online Coaching Website
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Big Ant Coaching - 1:1 Online Coaching</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-Professional intake form for Big Ant's 1:1 online coaching program. Collect client information about fitness goals, training experience, and commitment.
+    <div class="container">
+        <div class="header">
+            <h1>Big Ant Coaching</h1>
+            <p class="hero-text">1:1 Elite Physique Development</p>
+            <div class="price-tag">$150 / month</div>
+        </div>
 
-## 🎯 Features
+        <div class="features-box">
+            <h3>What's Included</h3>
+            <ul>
+                <li>Custom progressive overload training program tailored to your schedule and weak points.</li>
+                <li>Personalized macro targets and nutrition guidelines so you can grow without starving.</li>
+                <li>Weekly form reviews and check-ins to lock in your progress.</li>
+                <li>Direct 24/7 chat access to me for questions, adjustments, and accountability.</li>
+            </ul>
+        </div>
 
-✅ **Professional Dark Theme** - Modern, sleek design  
-✅ **Responsive Design** - Works on all devices  
-✅ **Form Validation** - Client-side validation with error messages  
-✅ **Checkbox & Radio Options** - Multiple question types  
-✅ **Form Integration** - Connected to Formspree for submissions  
-✅ **Clean UI** - Professional styling with hover effects  
+        <form id="coachingForm" action="https://formspree.io/f/xnpqdaej" method="POST">
+            
+            <div class="form-group">
+                <label for="fullname">Full Name</label>
+                <input type="text" id="fullname" name="fullname" placeholder="Enter your full name" required>
+            </div>
 
-## 📋 Form Fields
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="name@example.com" required>
+            </div>
 
-1. **Full Name** - Text input
-2. **Email Address** - Email with validation
-3. **Phone Number** - Phone input
-4. **Primary Fitness Goal** - Multiple checkboxes
-   - Building raw size / mass (Hypertrophy)
-   - Getting lean / dropping body fat
-   - Increasing strength on heavy compound lifts
-   - General physique aesthetic / V-taper development
-5. **Training Experience** - Radio buttons
-   - 0–1 year (Beginner)
-   - 1–3 years (Intermediate)
-   - 3+ years (Advanced)
-6. **Training Split** - Text input
-7. **Biggest Roadblock** - Textarea
-8. **Ready to Invest** - Yes/No radio buttons
+            <div class="form-group">
+                <label for="social">TikTok / Instagram Handle</label>
+                <input type="text" id="social" name="social" placeholder="@yourhandle" required>
+            </div>
 
-## 🚀 Quick Start
+            <div class="form-group">
+                <label for="goal">What is your primary fitness goal?</label>
+                <textarea id="goal" name="goal" placeholder="e.g., build lean mass, break strength plateaus, prep for a bulk" required></textarea>
+            </div>
 
-### 1. Enable GitHub Pages
-- Go to Settings → Pages
-- Select "Deploy from a branch"
-- Choose "main" branch, "/ (root)" folder
-- Click Save
-- Your site will be live at: `https://anteaton.github.io/big-ant-website`
+            <div id="error-message" class="error-msg"></div>
 
-### 2. Access Your Website
-- Visit: **https://anteaton.github.io/big-ant-website**
-- Form submissions go to your Formspree email
-- Check your inbox for new applications
+            <button type="submit" class="submit-btn">Submit Application</button>
+        </form>
+    </div>
 
-## 📁 File Structure
-
-```
-big-ant-website/
-├── index.html          # Main HTML form
-├── style.css          # Dark theme styling
-├── form-handler.js    # Form validation
-└── README.md          # Documentation
-```
-
-## 🎨 Customization
-
-### Change Colors
-Edit CSS variables in `style.css`:
-```css
-:root {
-    --bg-color: #0f0f11;        /* Background */
-    --card-bg: #18181c;         /* Card background */
-    --accent: #ff3b30;          /* Accent color (red) */
-    --text-main: #ffffff;       /* Main text */
-    --text-sub: #a1a1aa;        /* Subtitle text */
-    --border-color: #27272a;    /* Borders */
-}
-```
-
-### Change Form Questions
-Edit questions in `index.html` to match your needs.
-
-### Update Hero Text
-Change the tagline in the header:
-```html
-<p class="hero-text">Your custom message here...</p>
-```
-
-## 💻 Technology Stack
-
-- **HTML5** - Semantic markup
-- **CSS3** - Modern styling
-- **JavaScript (ES6+)** - Form validation
-- **Formspree** - Form submission handling
-
-## 📧 Form Submissions
-
-Submissions are automatically sent to your Formspree email:
-- **Formspree URL**: https://formspree.io/f/xnpqdaej
-- Check your inbox for new coaching applications
-- Respond directly via email or Formspree dashboard
-
-## ✅ Browser Support
-
-- Chrome/Edge (latest)
-- Firefox (latest)
-- Safari (latest)
-- Mobile browsers (iOS Safari, Chrome Mobile)
-
-## 🔧 Troubleshooting
-
-### Form Not Submitting
-1. Check browser console (F12 → Console)
-2. Ensure all required fields are filled
-3. Verify email is valid format
-4. Check Formspree status
-
-### Page Not Loading
-1. Verify GitHub Pages is enabled
-2. Wait 1-2 minutes for initial deployment
-3. Refresh page (Ctrl+F5)
-4. Check repository is public
-
-### Styling Issues
-1. Hard refresh (Ctrl+Shift+F5)
-2. Check browser cache
-3. Verify all CSS is loaded
-
-## 📱 Mobile Responsive
-
-The form automatically adapts to:
-- **Mobile** - Single column, large touch targets
-- **Tablet** - Optimized spacing and sizing
-- **Desktop** - Full-width form experience
-
-## 🔐 Data Privacy
-
-- Form data sent via HTTPS
-- Submissions stored in Formspree
-- No data stored on this server
-- You control all data access
-
-## 📞 Support
-
-For issues:
-1. Check browser console for errors
-2. Verify Formspree account is active
-3. Test with different browser
-4. Review GitHub Pages deployment status
-
----
-
-**Big Ant Coaching** - Elite Physique Development  
-Live at: **https://anteaton.github.io/big-ant-website**
+    <script src="form-handler.js"></script>
+</body>
+</html>
