@@ -1,17 +1,181 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Big Ant Coaching - 1:1 Online Coaching</title>
-    <link rel="stylesheet" href="style.css">
+    <title>On-1 Elite Physique Coaching</title>
+    <style>
+        :root {
+            --bg-color: #0f0f11;
+            --card-bg: #18181c;
+            --accent: #ff3b30;
+            --accent-hover: #e03229;
+            --text-main: #ffffff;
+            --text-sub: #a1a1aa;
+            --border-color: #27272a;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.5;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 650px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .header h1 {
+            font-size: 30px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+
+        .hero-text {
+            color: var(--text-sub);
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 12px;
+        }
+
+        .price-tag {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--accent);
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(255, 59, 48, 0.1);
+            border-radius: 20px;
+            margin-bottom: 20px;
+        }
+
+        .features-box {
+            background: rgba(255, 255, 255, 0.02);
+            border-left: 4px solid var(--accent);
+            padding: 18px 20px;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 30px;
+        }
+
+        .features-box h3 {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+            color: var(--text-main);
+        }
+
+        .features-box ul {
+            list-style-type: none;
+        }
+
+        .features-box li {
+            position: relative;
+            padding-left: 18px;
+            margin-bottom: 8px;
+            font-size: 13.5px;
+            color: var(--text-sub);
+        }
+
+        .features-box li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-main);
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 12px 16px;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: var(--text-main);
+            font-size: 15px;
+            transition: border-color 0.2s;
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 90px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 14px;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--accent-hover);
+        }
+    </style>
 </head>
 <body>
 
     <div class="container">
         <div class="header">
-            <h1>Big Ant Coaching</h1>
-            <p class="hero-text">1:1 Elite Physique Development</p>
+            <h1>On-1 Elite Physique Coaching</h1>
+            <p class="hero-text">1:1 Online Coaching</p>
             <div class="price-tag">$150 / month</div>
         </div>
 
@@ -25,8 +189,7 @@
             </ul>
         </div>
 
-        <form id="coachingForm" action="https://formspree.io/f/xnpqdaej" method="POST">
-            
+        <form action="https://formspree.io/f/xnpqdaej" method="POST">
             <div class="form-group">
                 <label for="fullname">Full Name</label>
                 <input type="text" id="fullname" name="fullname" placeholder="Enter your full name" required>
@@ -47,12 +210,11 @@
                 <textarea id="goal" name="goal" placeholder="e.g., build lean mass, break strength plateaus, prep for a bulk" required></textarea>
             </div>
 
-            <div id="error-message" class="error-msg"></div>
-
             <button type="submit" class="submit-btn">Submit Application</button>
         </form>
     </div>
 
-    <script src="form-handler.js"></script>
 </body>
 </html>
+
+```
