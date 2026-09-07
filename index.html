@@ -1,556 +1,220 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Big Ant Coaching | 1-on-1 Online Fitness Coaching</title>
-    <script src="https://js.stripe.com/v3/"></script>
+    <title>On-1 Elite Physique Coaching</title>
     <style>
         :root {
-            --bg-color: #ffffff;
-            --card-bg: #fbfbfa;
-            --text-color: #2b2b2b;
-            --text-muted: #555555;
-            --border-color: #ebe6df;
-            --accent-color: #1a1a1a;
-            --highlight-bg: #f7f6f3;
-            --success-color: #10b981;
-            --danger-color: #ef4444;
+            --bg-color: #0f0f11;
+            --card-bg: #18181c;
+            --accent: #ff3b30;
+            --accent-hover: #e03229;
+            --text-main: #ffffff;
+            --text-sub: #a1a1aa;
+            --border-color: #27272a;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
 
         body {
             background-color: var(--bg-color);
-            color: var(--text-color);
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            max-width: 900px;
-            margin: 0 auto;
+            color: var(--text-main);
+            line-height: 1.5;
             padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
 
-        header {
-            text-align: center;
-            margin-bottom: 50px;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 30px;
-        }
-
-        header h1 {
-            font-size: 2.5rem;
-            color: var(--accent-color);
-            margin-bottom: 10px;
-            letter-spacing: -0.5px;
-        }
-
-        header p {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-        }
-
-        h2 {
-            font-size: 1.5rem;
-            color: var(--accent-color);
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 8px;
-            margin-top: 40px;
-        }
-
-        h3 {
-            color: var(--accent-color);
-            margin-top: 0;
-        }
-
-        .card {
-            background-color: var(--card-bg);
+        .container {
+            width: 100%;
+            max-width: 650px;
+            background: var(--card-bg);
             border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 25px;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+        }
+
+        .header {
+            text-align: center;
             margin-bottom: 25px;
         }
 
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
+        .header h1 {
+            font-size: 30px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+
+        .hero-text {
+            color: var(--text-sub);
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 12px;
+        }
+
+        .price-tag {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--accent);
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(255, 59, 48, 0.1);
+            border-radius: 20px;
+            margin-bottom: 20px;
+        }
+
+        .features-box {
+            background: rgba(255, 255, 255, 0.02);
+            border-left: 4px solid var(--accent);
+            padding: 18px 20px;
+            border-radius: 0 8px 8px 0;
             margin-bottom: 30px;
         }
 
-        @media(min-width: 600px) {
-            .pricing-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
+        .features-box h3 {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+            color: var(--text-main);
         }
 
-        .pricing-card {
-            background-color: var(--card-bg);
-            border: 2px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            cursor: pointer;
-            transition: all 0.3s ease;
+        .features-box ul {
+            list-style-type: none;
         }
 
-        .pricing-card:hover {
-            border-color: var(--accent-color);
-        }
-
-        .pricing-card.selected {
-            border-color: var(--success-color);
-            background-color: rgba(16, 185, 129, 0.05);
-            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.15);
-        }
-
-        .pricing-card.featured {
-            border-color: var(--accent-color);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-        }
-
-        .price {
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: var(--accent-color);
-            margin: 10px 0 15px 0;
-        }
-
-        .radio-select {
-            display: none;
-        }
-
-        .checkmark {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            background-color: white;
-            border: 2px solid var(--border-color);
-            border-radius: 50%;
-            margin-right: 10px;
-            float: right;
-        }
-
-        .pricing-card.selected .checkmark {
-            background-color: var(--success-color);
-            border-color: var(--success-color);
-        }
-
-        ul {
-            padding-left: 20px;
-        }
-
-        li {
+        .features-box li {
+            position: relative;
+            padding-left: 18px;
             margin-bottom: 8px;
-            font-size: 0.95rem;
+            font-size: 13.5px;
+            color: var(--text-sub);
         }
 
-        /* Form Styling */
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
+        .features-box li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 16px;
         }
 
         .form-group {
-            display: flex;
-            flex-direction: column;
+            margin-bottom: 20px;
         }
 
         label {
-            font-weight: 600;
-            margin-bottom: 5px;
-            font-size: 0.95rem;
-        }
-
-        input, select, textarea {
-            padding: 12px;
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            font-size: 1rem;
-            background-color: #ffffff;
-            color: var(--text-color);
-            font-family: inherit;
-        }
-
-        input:focus, select:focus, textarea:focus {
-            outline: none;
-            border-color: #888888;
-        }
-
-        .checkbox-group {
-            display: flex;
-            flex-direction: row;
-            align-items: flex-start;
-            gap: 10px;
-            margin-top: 5px;
-        }
-
-        .checkbox-group input {
-            margin-top: 4px;
-            width: 18px;
-            height: 18px;
-            cursor: pointer;
-        }
-
-        .checkbox-group label {
-            font-weight: normal;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            cursor: pointer;
-        }
-
-        .waiver-box {
-            background-color: var(--highlight-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            padding: 15px;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            max-height: 120px;
-            overflow-y: auto;
-            margin-bottom: 5px;
-        }
-
-        .stripe-container {
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            padding: 12px;
-            margin-bottom: 15px;
-        }
-
-        .selected-program {
-            background-color: var(--highlight-bg);
-            border-left: 4px solid var(--success-color);
-            padding: 15px;
-            border-radius: 6px;
-            margin-bottom: 15px;
-            display: none;
-        }
-
-        .selected-program.show {
             display: block;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-main);
         }
 
-        .selected-program strong {
-            color: var(--accent-color);
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 12px 16px;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: var(--text-main);
+            font-size: 15px;
+            transition: border-color 0.2s;
         }
 
-        button[type="submit"] {
-            background-color: var(--success-color);
-            color: #ffffff;
-            padding: 14px;
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 90px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background-color: var(--accent);
+            color: white;
             border: none;
             border-radius: 6px;
-            font-size: 1rem;
+            padding: 14px;
+            font-size: 16px;
             font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
             cursor: pointer;
-            transition: background 0.2s ease;
+            transition: background-color 0.2s;
             margin-top: 10px;
         }
 
-        button[type="submit"]:hover {
-            background-color: #059669;
-        }
-
-        button[type="submit"]:disabled {
-            background-color: #cccccc;
-            cursor: not-allowed;
-        }
-
-        .error-message {
-            color: var(--danger-color);
-            font-size: 0.9rem;
-            margin-top: 5px;
-            display: none;
-        }
-
-        .error-message.show {
-            display: block;
-        }
-
-        .success-message {
-            color: var(--success-color);
-            font-size: 0.9rem;
-            margin-top: 5px;
-            display: none;
-        }
-
-        .success-message.show {
-            display: block;
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 60px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
-            color: var(--text-muted);
-            font-size: 0.9rem;
+        .submit-btn:hover {
+            background-color: var(--accent-hover);
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Big Ant Coaching</h1>
-        <p>Custom 1-on-1 Online Training & Progressive Overload Systems</p>
-    </header>
-
-    <main>
-        <h2>The Approach</h2>
-        <div class="card">
-            <p>Built specifically for gym-goers and lifters looking to optimize their training, break plateaus, and build muscle efficiently. No restrictive dieting or cookie-cutter routines—just structured progressive overload, realistic nutrition strategies, and high personal accountability.</p>
+    <div class="container">
+        <div class="header">
+            <h1>On-1 Elite Physique Coaching</h1>
+            <p class="hero-text">1:1 Online Coaching</p>
+            <div class="price-tag">$150 / month</div>
         </div>
 
-        <h2>Select Your Coaching Program</h2>
-        <p style="color: var(--text-muted); margin-bottom: 20px;">Click on any program card to select it, then fill out your information below.</p>
-        
-        <div class="pricing-grid">
-            <label class="pricing-card">
-                <div>
-                    <h3>Beta Cohort <span class="checkmark"></span></h3>
-                    <div class="price">$150 – $200 / mo</div>
-                    <ul>
-                        <li>Limited to first 3–5 slots.</li>
-                        <li>Full custom training & macro setup.</li>
-                        <li>Weekly progress photo & metric tracking.</li>
-                        <li>Requires 3-month commitment & video testimonial.</li>
-                    </ul>
-                </div>
-                <input type="radio" class="radio-select" name="program" value="beta" data-price="175">
-            </label>
-
-            <label class="pricing-card featured">
-                <div>
-                    <h3>Standard 1:1 <span class="checkmark"></span></h3>
-                    <div class="price">$200 – $300 / mo</div>
-                    <ul>
-                        <li>Custom training split for your schedule/equipment.</li>
-                        <li>Bi-weekly macro & calorie adjustments.</li>
-                        <li>Weekly asynchronous check-in & video form reviews.</li>
-                        <li>In-app messaging support (24–48h response).</li>
-                        <li>3-month minimum term.</li>
-                    </ul>
-                </div>
-                <input type="radio" class="radio-select" name="program" value="standard" data-price="250">
-            </label>
-
-            <label class="pricing-card">
-                <div>
-                    <h3>High-Touch <span class="checkmark"></span></h3>
-                    <div class="price">$400 – $500+ / mo</div>
-                    <ul>
-                        <li>Everything in Standard included.</li>
-                        <li>Direct WhatsApp/Telegram access (24h response).</li>
-                        <li>Detailed video form breakdowns for all compounds.</li>
-                        <li>Bi-weekly 15-minute live video check-ins.</li>
-                    </ul>
-                </div>
-                <input type="radio" class="radio-select" name="program" value="hightouch" data-price="450">
-            </label>
+        <div class="features-box">
+            <h3>What's Included</h3>
+            <ul>
+                <li>Custom progressive overload training program tailored to your schedule and weak points.</li>
+                <li>Personalized macro targets and nutrition guidelines so you can grow without starving.</li>
+                <li>Weekly form reviews and check-ins to lock in your progress.</li>
+                <li>Direct 24/7 chat access to me for questions, adjustments, and accountability.</li>
+            </ul>
         </div>
 
-        <h2>Complete Your Application & Payment</h2>
-        <div class="card">
-            <div class="selected-program" id="selectedProgram">
-                Selected Program: <strong id="programName"></strong> - <strong id="programPrice"></strong>/month
+        <form action="https://formspree.io/f/xnpqdaej" method="POST">
+            <div class="form-group">
+                <label for="fullname">Full Name</label>
+                <input type="text" id="fullname" name="fullname" placeholder="Enter your full name" required>
             </div>
 
-            <form id="paymentForm">
-                <div class="form-group">
-                    <label for="name">Full Name</label>
-                    <input type="text" id="name" name="name" required placeholder="John Doe">
-                </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="name@example.com" required>
+            </div>
 
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" required placeholder="john@example.com">
-                </div>
+            <div class="form-group">
+                <label for="social">TikTok / Instagram Handle</label>
+                <input type="text" id="social" name="social" placeholder="@yourhandle" required>
+            </div>
 
-                <div class="form-group">
-                    <label for="phone">Phone Number</label>
-                    <input type="tel" id="phone" name="phone" required placeholder="(555) 000-0000">
-                </div>
+            <div class="form-group">
+                <label for="goal">What is your primary fitness goal?</label>
+                <textarea id="goal" name="goal" placeholder="e.g., build lean mass, break strength plateaus, prep for a bulk" required></textarea>
+            </div>
 
-                <div class="form-group">
-                    <label for="goals">Primary Fitness Goal & Current Plateau</label>
-                    <textarea id="goals" name="goals" rows="4" required placeholder="e.g., Stalled on bench press, want to maximize leg hypertrophy, struggling with nutrition consistency..."></textarea>
-                </div>
-
-                <div class="form-group">
-                    <label>💳 Payment Information</label>
-                    <div id="card-element" class="stripe-container"></div>
-                    <div id="card-errors" class="error-message"></div>
-                </div>
-
-                <div class="form-group">
-                    <label>Coaching Terms & Liability Waiver</label>
-                    <div class="waiver-box">
-                        <strong>Medical & Service Disclaimer:</strong> Big Ant Coaching provides fitness programming and general nutritional guidance. I understand that I should consult a physician before beginning any physical exercise program. I assume full responsibility for any injuries incurred during training. Due to the custom digital nature of our programming, all 3-month coaching commitments are non-refundable once initial plans are delivered.
-                    </div>
-                    <div class="checkbox-group">
-                        <input type="checkbox" id="waiver" name="waiver_accepted" required>
-                        <label for="waiver">I have read, understood, and agree to the Terms of Service, Medical Waiver, and the 3-month minimum commitment policy.</label>
-                    </div>
-                </div>
-
-                <button type="submit" id="submitBtn" disabled>Select a Program Above</button>
-                <div id="submit-error" class="error-message"></div>
-                <div id="submit-success" class="success-message"></div>
-            </form>
-        </div>
-    </main>
-
-    <footer>
-        <p>&copy; 2026 Big Ant Coaching. All rights reserved.</p>
-        <p>💳 Payments processed securely by Stripe</p>
-    </footer>
-
-    <script>
-        // Initialize Stripe
-        const stripe = Stripe('pk_test_51234567890abcdefghijklmnopqrstuvwxyz'); // Replace with your Stripe publishable key
-        const elements = stripe.elements();
-        const cardElement = elements.create('card');
-
-        // Program selection handling
-        const programRadios = document.querySelectorAll('input[name="program"]');
-        const pricingCards = document.querySelectorAll('.pricing-card');
-        const selectedProgramDiv = document.getElementById('selectedProgram');
-        const programNameSpan = document.getElementById('programName');
-        const programPriceSpan = document.getElementById('programPrice');
-        const submitBtn = document.getElementById('submitBtn');
-        const paymentForm = document.getElementById('paymentForm');
-
-        programRadios.forEach((radio) => {
-            radio.addEventListener('change', function() {
-                // Update card styling
-                pricingCards.forEach(card => card.classList.remove('selected'));
-                event.target.closest('.pricing-card').classList.add('selected');
-
-                // Update selected program display
-                const programLabel = event.target.closest('.pricing-card').querySelector('h3').textContent.split('\n')[0];
-                const price = event.target.closest('.pricing-card').querySelector('.price').textContent;
-                
-                programNameSpan.textContent = programLabel.trim();
-                programPriceSpan.textContent = price.trim();
-                selectedProgramDiv.classList.add('show');
-
-                // Mount card element
-                cardElement.mount('#card-element');
-
-                // Enable submit button
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Secure Payment & Start Coaching';
-            });
-        });
-
-        // Handle form submission
-        paymentForm.addEventListener('submit', async function(e) {
-            e.preventDefault();
-
-            // Check if program is selected
-            const selectedProgram = document.querySelector('input[name="program"]:checked');
-            if (!selectedProgram) {
-                showError('Please select a coaching program');
-                return;
-            }
-
-            // Check if waiver is accepted
-            if (!document.getElementById('waiver').checked) {
-                showError('Please accept the waiver to proceed');
-                return;
-            }
-
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Processing...';
-
-            // Collect form data
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const goals = document.getElementById('goals').value;
-            const program = selectedProgram.value;
-            const price = selectedProgram.dataset.price;
-
-            // Create payment method
-            const { error, paymentMethod } = await stripe.createPaymentMethod({
-                type: 'card',
-                card: cardElement,
-                billing_details: {
-                    name: name,
-                    email: email,
-                    phone: phone
-                }
-            });
-
-            if (error) {
-                showError(error.message);
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Secure Payment & Start Coaching';
-                return;
-            }
-
-            // Send payment to backend (you'll need a backend endpoint)
-            try {
-                const response = await fetch('/process-payment', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        paymentMethodId: paymentMethod.id,
-                        name: name,
-                        email: email,
-                        phone: phone,
-                        goals: goals,
-                        program: program,
-                        amount: Math.round(price * 100) // Convert to cents
-                    })
-                });
-
-                const data = await response.json();
-
-                if (data.success) {
-                    showSuccess('Payment successful! Check your email for next steps.');
-                    paymentForm.reset();
-                    cardElement.clear();
-                    selectedProgramDiv.classList.remove('show');
-                    pricingCards.forEach(card => card.classList.remove('selected'));
-                    submitBtn.disabled = true;
-                    submitBtn.textContent = 'Select a Program Above';
-                } else {
-                    showError(data.error || 'Payment failed. Please try again.');
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = 'Secure Payment & Start Coaching';
-                }
-            } catch (err) {
-                showError('An error occurred. Please try again.');
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Secure Payment & Start Coaching';
-            }
-        });
-
-        function showError(message) {
-            const errorDiv = document.getElementById('submit-error');
-            const cardErrors = document.getElementById('card-errors');
-            errorDiv.textContent = message;
-            errorDiv.classList.add('show');
-            cardErrors.textContent = message;
-            cardErrors.classList.add('show');
-            setTimeout(() => {
-                errorDiv.classList.remove('show');
-                cardErrors.classList.remove('show');
-            }, 5000);
-        }
-
-        function showSuccess(message) {
-            const successDiv = document.getElementById('submit-success');
-            successDiv.textContent = message;
-            successDiv.classList.add('show');
-            setTimeout(() => {
-                successDiv.classList.remove('show');
-            }, 5000);
-        }
-    </script>
+            <button type="submit" class="submit-btn">Submit Application</button>
+        </form>
+    </div>
 
 </body>
 </html>
+
+```
