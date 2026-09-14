@@ -3,267 +3,319 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BIG ANT - On-1 Elite Physique Coaching</title>
+    <title>BIGANT | Elite Physique Coaching</title>
+    <!-- Google Fonts for US Fitness Vibe -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --bg-color: #f4f4f6;
-            --card-bg: #ffffff;
-            --accent: #ff3b30;
-            --accent-hover: #e03229;
-            --text-main: #111113;
-            --text-sub: #55555d;
-            --border-color: #e2e2e8;
-        }
-
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            box-sizing: border-box;
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.5;
-            padding: 40px 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #070707;
+            color: #f3f3f3;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        header {
+            text-align: center;
+            padding: 50px 20px 20px;
+            background: linear-gradient(180deg, rgba(255,59,48,0.1) 0%, rgba(7,7,7,0) 100%);
+        }
+
+        .brand-tag {
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 4px;
+            color: #ff3b30;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+            color: #ffffff;
+            text-shadow: 0 0 30px rgba(255, 59, 48, 0.3);
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: #888;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
         .container {
-            width: 100%;
-            max-width: 650px;
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 40px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 20px;
         }
 
-        .header {
+        /* Hero / Pricing Card */
+        .card {
+            background: linear-gradient(145deg, #121212, #181818);
+            border: 1px solid #262626;
+            border-radius: 16px;
+            padding: 40px 30px;
+            margin-top: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.7);
             text-align: center;
-            margin-bottom: 25px;
+            position: relative;
+            overflow: hidden;
         }
 
-        .header h1 {
-            font-size: 32px;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-bottom: 4px;
-            color: var(--text-main);
-        }
-
-        .hero-text {
-            color: var(--text-sub);
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-bottom: 12px;
-            font-weight: 600;
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #ff3b30, transparent);
         }
 
         .price-tag {
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--accent);
-            display: inline-block;
-            padding: 4px 14px;
-            background: rgba(255, 59, 48, 0.1);
-            border-radius: 20px;
-            margin-bottom: 20px;
+            font-size: 3rem;
+            font-weight: 900;
+            color: #ffffff;
+            margin: 15px 0 5px;
         }
 
-        .features-box {
-            background: #fafafc;
-            border: 1px solid var(--border-color);
-            border-left: 4px solid var(--accent);
-            padding: 18px 20px;
-            border-radius: 0 8px 8px 0;
-            margin-bottom: 30px;
-        }
-
-        .features-box h3 {
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 10px;
-            color: var(--text-main);
-        }
-
-        .features-box ul {
-            list-style-type: none;
-        }
-
-        .features-box li {
-            position: relative;
-            padding-left: 18px;
-            margin-bottom: 8px;
-            font-size: 13.5px;
-            color: var(--text-sub);
-        }
-
-        .features-box li::before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-            font-weight: bold;
-            font-size: 16px;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        label {
-            display: block;
-            font-size: 14px;
+        .price-tag span {
+            font-size: 1rem;
+            color: #777;
             font-weight: 600;
-            margin-bottom: 8px;
-            color: var(--text-main);
         }
 
-        input[type="text"],
-        input[type="email"],
-        textarea,
-        select {
-            width: 100%;
-            padding: 12px 16px;
-            background: #fafafc;
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            color: var(--text-main);
-            font-size: 15px;
-            transition: border-color 0.2s;
+        .hero-desc {
+            color: #bbb;
+            font-size: 1.05rem;
+            margin-bottom: 25px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        input:focus,
-        textarea:focus,
-        select:focus {
-            outline: none;
-            border-color: var(--accent);
-            background: #ffffff;
-        }
-
-        textarea {
-            resize: vertical;
-            min-height: 90px;
-        }
-
-        .radio-group {
+        /* Buttons */
+        .btn-group {
             display: flex;
             flex-direction: column;
-            gap: 10px;
-            background: #fafafc;
-            padding: 14px;
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
+            gap: 15px;
+            margin-top: 25px;
         }
 
-        .radio-label {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 14px;
-            font-weight: normal;
-            color: var(--text-sub);
-            cursor: pointer;
-        }
-
-        .radio-label input {
-            accent-color: var(--accent);
-            width: 16px;
-            height: 16px;
-            cursor: pointer;
-        }
-
-        .submit-btn {
+        .btn {
+            display: inline-block;
             width: 100%;
-            background-color: var(--accent);
-            color: white;
-            border: none;
-            border-radius: 6px;
-            padding: 14px;
-            font-size: 16px;
-            font-weight: bold;
+            padding: 18px;
+            font-size: 1rem;
+            font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: all 0.3s ease;
             cursor: pointer;
-            transition: background-color 0.2s;
-            margin-top: 10px;
+            letter-spacing: 1px;
+            border: none;
         }
 
-        .submit-btn:hover {
-            background-color: var(--accent-hover);
+        .btn-primary {
+            background: linear-gradient(135deg, #ff3b30, #d9251a);
+            color: #ffffff;
+            box-shadow: 0 10px 25px rgba(255, 59, 48, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(255, 59, 48, 0.6);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: #ffffff;
+            border: 2px solid #333;
+        }
+
+        .btn-secondary:hover {
+            border-color: #fff;
+            background-color: rgba(255,255,255,0.03);
+        }
+
+        /* Sections */
+        section {
+            margin-top: 40px;
+            background: #111111;
+            border: 1px solid #222;
+            border-radius: 16px;
+            padding: 35px 30px;
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            color: #ffffff;
+            border-left: 4px solid #ff3b30;
+            padding-left: 12px;
+            letter-spacing: 1px;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 18px;
+            color: #ccc;
+            font-size: 1rem;
+        }
+
+        ul li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #ff3b30;
+            font-weight: 900;
+            font-size: 1.1rem;
+        }
+
+        /* Before / After Transformation Showcase */
+        .transformation-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .photo-card {
+            background: #181818;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #262626;
+            text-align: center;
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .photo-label {
+            padding: 15px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+        }
+
+        .label-before {
+            color: #888;
+            background: #141414;
+        }
+
+        .label-after {
+            color: #ff3b30;
+            background: #141414;
+            border-top: 1px solid #262626;
+        }
+
+        footer {
+            text-align: center;
+            padding: 50px 20px;
+            color: #555;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        @media (min-width: 650px) {
+            .btn-group {
+                flex-direction: row;
+            }
+            .transformation-grid {
+                grid-template-columns: 1fr 1fr;
+            }
         }
     </style>
 </head>
 <body>
 
+    <header>
+        <div class="brand-tag">TikTok Verified Coaching</div>
+        <h1>BIGANT</h1>
+        <div class="subtitle">Elite Physique Coaching</div>
+    </header>
+
     <div class="container">
-        <div class="header">
-            <h1>BIG ANT</h1>
-            <p class="hero-text">On-1 Elite Physique Coaching</p>
-            <div class="price-tag">$150 / month</div>
+        
+        <!-- Pricing & Hero Card -->
+        <div class="card">
+            <p class="hero-desc">Stop guessing in the gym. Get a custom, data-driven training & nutrition system built for real muscle growth and fat loss.</p>
+            <div class="price-tag">$80 <span>/ month</span></div>
+            <p style="font-size: 0.85rem; color: #666; margin-bottom: 25px;">Cancel anytime. Zero friction. Maximum results.</p>
+            
+            <div class="btn-group">
+                <a href="#consultation" class="btn btn-secondary">Free Consultation</a>
+                <a href="#checkout" class="btn btn-primary">Join Now ($80/mo)</a>
+            </div>
         </div>
 
-        <div class="features-box">
-            <h3>What's Included</h3>
+        <!-- NEW FEATURE: Free Consultation -->
+        <section id="consultation">
+            <h2>Not sure where to start?</h2>
+            <p style="color: #bbb; font-size: 1rem; margin-bottom: 20px;">Book your <strong>Free 15-Minute Strategy Call</strong>. We’ll assess your current physique, discuss your goals, review your blocks, and map out a custom blueprint before you spend a single dollar.</p>
+            <a href="#" class="btn btn-primary" style="text-align: center; display: block;">Book Free Assessment Now</a>
+        </section>
+
+        <!-- What's Included -->
+        <section>
+            <h2>What’s Included</h2>
             <ul>
-                <li>Custom progressive overload training program tailored to your schedule and weak points.</li>
-                <li>Personalized macro targets and nutrition guidelines so you can grow without starving.</li>
-                <li>Weekly form reviews and check-ins to lock in your progress.</li>
-                <li>Direct 24/7 chat access to me for questions, adjustments, and accountability.</li>
+                <li><strong>Custom Progressive Overload Training Program</strong> tailored strictly to your schedule, equipment access, and weak points.</li>
+                <li><strong>Personalized Macro Targets & Nutrition Guidance</strong> so you can fuel performance and grow without starving.</li>
+                <li><strong>Weekly Form Reviews & Check-Ins</strong> to lock in your execution and crush plateaus.</li>
+                <li><strong>Direct 24/7 Chat Access</strong> to me for real-time adjustments and unmatched accountability.</li>
             </ul>
-        </div>
+        </section>
 
-        <form action="https://formspree.io/f/xnpqdaej" method="POST">
-            <div class="form-group">
-                <label for="fullname">Full Name</label>
-                <input type="text" id="fullname" name="fullname" placeholder="Enter your full name" required>
-            </div>
-
-            <div class="form-group">
-                <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" placeholder="name@example.com" required>
-            </div>
-
-            <div class="form-group">
-                <label for="social">TikTok / Instagram Handle</label>
-                <input type="text" id="social" name="social" placeholder="@yourhandle" required>
-            </div>
-
-            <div class="form-group">
-                <label for="goal">What is your primary fitness goal?</label>
-                <textarea id="goal" name="goal" placeholder="e.g., build lean mass, break strength plateaus, prep for a bulk" required></textarea>
-            </div>
-
-            <div class="form-group">
-                <label for="payment">Preferred Payment Method</label>
-                <select id="payment" name="payment" required>
-                    <option value="" disabled selected>Select payment method</option>
-                    <option value="Credit/Debit Card">Credit / Debit Card</option>
-                    <option value="Apple Pay">Apple Pay</option>
-                    <option value="PayPal">PayPal</option>
-                    <option value="Zelle">Zelle / Venmo</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label>Are you ready to invest $150/month in your coaching?</label>
-                <div class="radio-group">
-                    <label class="radio-label"><input type="radio" name="invest" value="Yes" required> Yes, ready to start</label>
-                    <label class="radio-label"><input type="radio" name="invest" value="No"> No</label>
+        <!-- Coach Physique / Transformation Section -->
+        <section>
+            <h2>Lead by Example</h2>
+            <p style="color: #bbb; font-size: 0.95rem; margin-bottom: 20px;">Built through science, relentless discipline, and years in the trenches. This is the exact standard I bring to your coaching.</p>
+            
+            <div class="transformation-grid">
+                <!-- Photo Avant (IMG_6384.PNG) -->
+                <div class="photo-card">
+                    <img src="IMG_6384.PNG" alt="Before Transformation">
+                    <div class="photo-label label-before">The Starting Point</div>
+                </div>
+                <!-- Photo Après (IMG_6385.PNG) -->
+                <div class="photo-card">
+                    <img src="IMG_6385.PNG" alt="After Transformation">
+                    <div class="photo-label label-after">The Standard Today</div>
                 </div>
             </div>
+        </section>
 
-            <button type="submit" class="submit-btn">Submit Application</button>
-        </form>
     </div>
+
+    <footer>
+        &copy; 2026 BIGANT FITNESS. All Rights Reserved.
+    </footer>
 
 </body>
 </html>
