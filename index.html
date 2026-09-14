@@ -60,7 +60,7 @@
             padding: 20px;
         }
 
-        /* Hero / Pricing Card */
+        /* Pricing & Hero Card */
         .card {
             background: linear-gradient(145deg, #121212, #181818);
             border: 1px solid #262626;
@@ -106,13 +106,6 @@
         }
 
         /* Buttons */
-        .btn-group {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin-top: 25px;
-        }
-
         .btn {
             display: inline-block;
             width: 100%;
@@ -127,6 +120,7 @@
             letter-spacing: 1px;
             border: none;
             text-align: center;
+            margin-top: 15px;
         }
 
         .btn-primary {
@@ -244,9 +238,6 @@
         }
 
         @media (min-width: 650px) {
-            .btn-group {
-                flex-direction: row;
-            }
             .transformation-grid {
                 grid-template-columns: 1fr 1fr;
             }
@@ -263,29 +254,28 @@
 
     <div class="container">
         
-        <!-- Pricing & Hero Card -->
+        <!-- SECTION 1: DIRECT SUBSCRIPTION ($80/mo) -->
         <div class="card">
-            <p class="hero-desc">Stop guessing in the gym. Get a custom, data-driven training & nutrition system built for real muscle growth and fat loss.</p>
-            <div class="price-tag">$80 <span>/ month</span></div>
-            <p style="font-size: 0.85rem; color: #666; margin-bottom: 25px;">Cancel anytime. Zero friction. Maximum results.</p>
+            <span style="background: rgba(255,59,48,0.15); color: #ff3b30; padding: 6px 14px; border-radius: 20px; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">Fast Track</span>
+            <div class="price-tag" style="margin-top: 15px;">$80 <span>/ month</span></div>
+            <p class="hero-desc">Ready to commit? Get immediate access to your custom progressive overload training program, personalized nutrition, and 24/7 direct chat.</p>
             
-            <div class="btn-group">
-                <a href="#consultation" class="btn btn-secondary">Free Consultation</a>
-                <!-- Lien Stripe intégré -->
-                <a href="https://buy.stripe.com/test_aFadRb5HN6ac85p9fHbjW00" target="_blank" class="btn btn-primary">Join Now ($80/mo)</a>
-            </div>
+            <a href="https://buy.stripe.com/test_aFadRb5HN6ac85p9fHbjW00" target="_blank" class="btn btn-primary">Join Elite Coaching Now</a>
         </div>
 
-        <!-- NEW FEATURE: Free Consultation -->
-        <section id="consultation">
-            <h2>Not sure where to start?</h2>
-            <p style="color: #bbb; font-size: 1rem; margin-bottom: 20px;">Book your <strong>Free 15-Minute Strategy Call</strong>. We’ll assess your current physique, discuss your goals, review your blocks, and map out a custom blueprint before you spend a single dollar.</p>
-            <a href="https://buy.stripe.com/test_aFadRb5HN6ac85p9fHbjW00" target="_blank" class="btn btn-primary">Book Free Assessment Now</a>
+        <!-- SECTION 2: FREE CONSULTATION (0.00$) -->
+        <section id="consultation" style="border: 1px solid #333;">
+            <span style="background: rgba(255,255,255,0.08); color: #fff; padding: 6px 14px; border-radius: 20px; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">Step 0</span>
+            <h2 style="margin-top: 15px;">Free 15-Min Strategy Call ($0.00)</h2>
+            <p style="color: #bbb; font-size: 1rem; margin-bottom: 20px;">Not sure yet? Let's talk. Book your free 15-minute consultation call with me. We will assess your physique, find your bottlenecks, and build a roadmap before you spend a dime.</p>
+            
+            <!-- Lien Calendly intégré -->
+            <a href="https://calendly.com/anthony-eaton5/bigant-free-assessment" target="_blank" class="btn btn-secondary">Book Free Consultation Call</a>
         </section>
 
         <!-- What's Included -->
         <section>
-            <h2>What’s Included</h2>
+            <h2>What’s Included in Coaching</h2>
             <ul>
                 <li><strong>Custom Progressive Overload Training Program</strong> tailored strictly to your schedule, equipment access, and weak points.</li>
                 <li><strong>Personalized Macro Targets & Nutrition Guidance</strong> so you can fuel performance and grow without starving.</li>
@@ -300,12 +290,12 @@
             <p style="color: #bbb; font-size: 0.95rem; margin-bottom: 20px;">Built through science, relentless discipline, and years in the trenches. This is the exact standard I bring to your coaching.</p>
             
             <div class="transformation-grid">
-                <!-- Photo Avant (IMG_6389.PNG.jpg) -->
+                <!-- Photo Avant -->
                 <div class="photo-card">
                     <img src="IMG_6389.PNG.jpg" alt="Before Transformation">
                     <div class="photo-label label-before">The Starting Point</div>
                 </div>
-                <!-- Photo Après (IMG_6385.PNG.jpg) -->
+                <!-- Photo Après -->
                 <div class="photo-card">
                     <img src="IMG_6385.PNG.jpg" alt="After Transformation">
                     <div class="photo-label label-after">The Standard Today</div>
