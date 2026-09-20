@@ -186,7 +186,7 @@
             font-size: 1.1rem;
         }
 
-        /* Trust & Credibility Section (Anti-Scam / Diplomas) */
+        /* Trust & Credibility Section (Anti-Scam & Degree) */
         .trust-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -380,15 +380,15 @@
             <button onclick="openQuestionnaire('consult')" class="btn btn-secondary">Book Free Consultation Call</button>
         </section>
 
-        <!-- SECTION 3: TRUST & CREDIBILITY (ANTI-SCAM & DIPLOMAS) -->
+        <!-- SECTION 3: TRUST & CREDIBILITY (ANTI-SCAM & DEGREE) -->
         <section>
             <h2>Verified Expertise & Guarantees</h2>
-            <p style="color: #bbb; font-size: 0.95rem; margin-bottom: 20px;">Zero guesswork, zero fake promises. Total transparency on qualifications and secure processing.</p>
+            <p style="color: #bbb; font-size: 0.95rem; margin-bottom: 20px;">Zero guesswork, zero fake promises. Total transparency on academic background and secure processing.</p>
             
             <div class="trust-grid">
                 <div class="trust-badge">
-                    <h3>📜 Certified Professional</h3>
-                    <p>Holder of official fitness & health coaching credentials. Verified expertise tailored to serious body transformations.</p>
+                    <h3>🎓 Academic Foundation</h3>
+                    <p>Bachelor in Sport & Recreation Management (Minor in Business). Science-backed methodologies built on solid foundations.</p>
                 </div>
                 <div class="trust-badge">
                     <h3>🔒 Secure Checkout</h3>
@@ -506,21 +506,16 @@
         function handleFormSubmit(event) {
             event.preventDefault();
             
-            // Récupération des données du formulaire (si besoin de les stocker ou passer)
             const name = document.getElementById('userName').value;
             const email = document.getElementById('userEmail').value;
             
-            // Redirection selon le choix initial après remplissage du questionnaire
             if (selectedAction === 'direct') {
-                // Lien Stripe direct
                 window.location.href = "https://buy.stripe.com/test_aFadRb5HN6ac85p9fHbjW00";
             } else {
-                // Lien Calendly Free Call
                 window.location.href = "https://calendly.com/anthony-eaton5/bigant-free-assessment";
             }
         }
 
-        // Fermer la modale si on clique en dehors
         window.onclick = function(event) {
             const modal = document.getElementById('questionnaireModal');
             if (event.target === modal) {
