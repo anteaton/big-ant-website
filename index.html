@@ -437,8 +437,8 @@
             <h2 id="modalMainTitle" style="margin-bottom: 15px; font-size: 1.3rem;">Tell Me About Your Goals</h2>
             <p style="color: #888; font-size: 0.9rem; margin-bottom: 20px;">Fill out this quick assessment so we can maximize your results from day one.</p>
             
-            <!-- Form configured with Formspree to send to Anthony.eaton5@hotmail.com -->
-            <form id="intakeForm" action="https://formspree.io/f/xyzkrgya" method="POST" onsubmit="handleFormSubmit(event)">
+            <!-- Form configured with new Formspree endpoint -->
+            <form id="intakeForm" action="https://formspree.io/f/xnpqdaej" method="POST" onsubmit="handleFormSubmit(event)">
                 <div class="form-group">
                     <label>Full Name</label>
                     <input type="text" name="name" id="userName" required placeholder="e.g. John Doe">
@@ -505,8 +505,6 @@
         }
 
         function handleFormSubmit(event) {
-            // Note: Formspree handles the submission email. 
-            // We use a small timeout to let Formspree receive the data before redirecting to Stripe or Calendly.
             event.preventDefault();
             
             const form = document.getElementById('intakeForm');
@@ -526,8 +524,8 @@
         }
 
         window.onclick = function(event) {
-            const modal = document.getElementById('questionnaireModal');
-            if (event.target === modal) {
+            const tag = document.getElementById('questionnaireModal');
+            if (event.target === tag) {
                 closeQuestionnaire();
             }
         }
